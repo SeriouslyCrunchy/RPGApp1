@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue">
-            </Label>
+        </Label>
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -54,7 +54,23 @@
         <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="Lavender"/>
-        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Console Text" Background="LightYellow"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="1" Grid.Column="1" Content="Add XP" Click="ButtonXP_OnClick"></Button>
+            <Button Grid.Row="2" Grid.Column="1" Content="Add Gold" Click="ButtonGold_OnClick"></Button>
+            <Button Grid.Row="1" Grid.Column="2" Content="Player Hit" Click="ButtonDamage_OnClick"></Button>
+        </Grid>
+    <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="Console Text" Background="LightYellow"/>
 
     </Grid>
 </Window>

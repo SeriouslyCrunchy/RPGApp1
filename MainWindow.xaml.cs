@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 //need a reference to the other classes we want to use
 using Engine.ClassViewer;
 
+//namespace of this project so we know where to find it
 namespace RPGUI
 {
     /// <summary>
@@ -26,6 +27,25 @@ namespace RPGUI
             InitializeComponent();
             NewGameSession = new GameSession();
             DataContext = NewGameSession;
+        }
+
+        //methods for clicking specific buttons in the UI, these will be adjusted later, the button names are referenced in the xaml
+        private void ButtonXP_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGameSession.CurrentPlayer.ExperiencePoints = NewGameSession.CurrentPlayer.ExperiencePoints + 10;
+            if (NewGameSession.CurrentPlayer.ExperiencePoints >= 100)
+            {
+                NewGameSession.CurrentPlayer.Level++;
+                NewGameSession.CurrentPlayer.ExperiencePoints = 0;
+            }
+        }
+        private void ButtonGold_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGameSession.CurrentPlayer.Gold = NewGameSession.CurrentPlayer.Gold + 10;
+        }
+        private void ButtonDamage_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGameSession.CurrentPlayer.HitPoints = NewGameSession.CurrentPlayer.HitPoints - 1;
         }
     }
 }
