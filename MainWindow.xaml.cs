@@ -30,7 +30,7 @@ namespace RPGUI
         }
 
         //methods for clicking specific buttons in the UI, these will be adjusted later, the button names are referenced in the xaml
-        private void ButtonXP_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             NewGameSession.CurrentPlayer.ExperiencePoints = NewGameSession.CurrentPlayer.ExperiencePoints + 10;
             if (NewGameSession.CurrentPlayer.ExperiencePoints >= 100)
