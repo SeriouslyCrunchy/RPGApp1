@@ -39,13 +39,26 @@ namespace RPGUI
                 NewGameSession.CurrentPlayer.ExperiencePoints = 0;
             }
         }
-        private void ButtonGold_OnClick(object sender, RoutedEventArgs e)
+        //these methods reference the movement functions in the GameSession class
+        private void ButtonNorth_OnClick(object sender, RoutedEventArgs e)
         {
-            NewGameSession.CurrentPlayer.Gold = NewGameSession.CurrentPlayer.Gold + 10;
+            NewGameSession.MoveNorth();
+            
         }
-        private void ButtonDamage_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonSouth_OnClick(object sender, RoutedEventArgs e)
         {
-            NewGameSession.CurrentPlayer.HitPoints = NewGameSession.CurrentPlayer.HitPoints - 1;
+            NewGameSession.MoveSouth();
+            
+        }
+        private void ButtonEast_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGameSession.MoveEast();
+            
+        }
+        private void ButtonWest_OnClick(object sender, RoutedEventArgs e)
+        {
+            NewGameSession.MoveWest();
+            
         }
     }
 }
