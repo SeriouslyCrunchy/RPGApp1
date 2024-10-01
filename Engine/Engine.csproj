@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Locations\DSC_0904.JPG" />
+    <None Remove="Images\Locations\DSC_0904.png" />
+    <None Remove="Images\Locations\DSC_0935.JPG" />
+    <None Remove="Images\Locations\DSC_1002.JPG" />
+    <None Remove="Images\Locations\DSC_1065.JPG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Locations\DSC_0904.JPG" />
+    <Resource Include="Images\Locations\DSC_0904.png" />
+    <Resource Include="Images\Locations\DSC_0935.JPG" />
+    <Resource Include="Images\Locations\DSC_1002.JPG" />
+    <Resource Include="Images\Locations\DSC_1065.JPG" />
+  </ItemGroup>
+
+</Project>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGUI", "RPGUI.csproj", "{632ED8B5-DBEC-40FD-930E-CD89F8938942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "..\Engine\Engine.csproj", "{026B6549-E0B6-47C0-BBF4-2FB36768D105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{9CAB392F-12A6-41DD-98A9-C72FE69E3BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{632ED8B5-DBEC-40FD-930E-CD89F8938942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632ED8B5-DBEC-40FD-930E-CD89F8938942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632ED8B5-DBEC-40FD-930E-CD89F8938942}.Release|Any CPU.Build.0 = Release|Any CPU
-		{026B6549-E0B6-47C0-BBF4-2FB36768D105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{026B6549-E0B6-47C0-BBF4-2FB36768D105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{026B6549-E0B6-47C0-BBF4-2FB36768D105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{026B6549-E0B6-47C0-BBF4-2FB36768D105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CAB392F-12A6-41DD-98A9-C72FE69E3BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CAB392F-12A6-41DD-98A9-C72FE69E3BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CAB392F-12A6-41DD-98A9-C72FE69E3BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CAB392F-12A6-41DD-98A9-C72FE69E3BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
