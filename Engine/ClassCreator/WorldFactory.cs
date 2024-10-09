@@ -7,10 +7,13 @@ using Engine.Classes;
 
 namespace Engine.ClassCreator
 {
-    internal class WorldFactory
+    //making this class static means we don't have to create an instance of this class to run the methods inside it
+    //remember that because the WorldFactory class is static (it will never be instantiated), it cannot have a function that requires an instantiated object
+    // We can safely make WorldFactory a static class because we are not “maintaining state” in it – we are not holding any variable values inside the static class.
+    internal static class WorldFactory
     {
         //simply creates and returns a new world to whatever called it - we can also add all the locations of the world here, provided they meet the criteria given in the world class
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World gameWorld = new World();
 

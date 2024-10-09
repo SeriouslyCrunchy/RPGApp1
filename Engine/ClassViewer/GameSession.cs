@@ -10,7 +10,9 @@ using System.ComponentModel;
 
 namespace Engine.ClassViewer
 {
-    public class GameSession : INotifyPropertyChanged
+    //the INotifyPropertyChanged class must be referenced here to allow us to change data and have it update in UI on the fly
+    //this is later replaced to inherit BaseNotificationClass, as this class is inheriting INotifyPropertyChanged
+    public class GameSession : BaseNotificationClass
     {
         //instance of various classes to set up the game world for instance : Player to create the current player, Location for the current Location, and World for the current World.
         public Player CurrentPlayer {  get; set; }
@@ -22,12 +24,13 @@ namespace Engine.ClassViewer
             {
                 _currentLocation = value;
 
-                OnPropertyChanged("CurrentLocation");
+                //adjusting these so that they rely on strings less
+                OnPropertyChanged(nameof(CurrentLocation));
 
-                OnPropertyChanged("HasLocationToNorth");
-                OnPropertyChanged("HasLocationToEast");
-                OnPropertyChanged("HasLocationToWest");
-                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged(nameof(HasLocationToNorth));
+                OnPropertyChanged(nameof(HasLocationToEast));
+                OnPropertyChanged(nameof(HasLocationToWest));
+                OnPropertyChanged(nameof(HasLocationToSouth));
             }
         }
         public World CurrentWorld { get; set; }
@@ -66,6 +69,19 @@ namespace Engine.ClassViewer
         //constructor for the game session creates classes where necessary and fills them with basic info
         public GameSession()
         {
+
+            CurrentPlayer = new Player
+            {
+                Name = "Unnamed",
+                CharacterClass = CharacterClasses.LostOne,
+                HitPoints = 10,
+                Gold = 10,
+                ExperiencePoints = 0,
+                Level = 1
+            };
+
+            //this code has been replaced by the code above, which is using named parameters
+            /*
             CurrentPlayer = new Player();
             CurrentPlayer.Name = "Nameless";
             CurrentPlayer.Gold = 100;
@@ -73,24 +89,22 @@ namespace Engine.ClassViewer
             CurrentPlayer.Level = 1;
             CurrentPlayer.ExperiencePoints = 0;
             CurrentPlayer.HitPoints = 10;
-
-            //This will be replaced by a world creator or factory
-            /*
-            CurrentLocation = new Location();
-            CurrentLocation.LocationName = "Ruins";
-            CurrentLocation.LocationDescription = "The ruins where you awoke, enough to provide some, albeit poor, shelter from the elements";
-            CurrentLocation.XCoordinate = 0;
-            CurrentLocation.YCoordinate = 0;
-            CurrentLocation.LocationImageFile = "pack://application:,,,/Engine;component/Images/Locations/DSC_0904.png";
             */
 
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+            //We can make a change that will allow us to get a World object from the WorldFactory class, without instantiating a WorldFactory object.
+            //We do this by making the WorldFactory “static” and then simply calling the method from the class directly
+            CurrentWorld = WorldFactory.CreateWorld();
+
             CurrentLocation = CurrentWorld.FindLocationAt(0, 0);
+
+            //We can add items directly into the player's inventory here using the function in the item factory and they will show up on game start
+            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(1003));
+            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(1003));
 
         }
 
         //functions to move the view point in game
+        //you could also put guard clauses here to prevent people from feeding data in that they should not, for instance by running bool checks before any move
         public void MoveNorth()
         {
             CurrentLocation = CurrentWorld.FindLocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
@@ -111,10 +125,11 @@ namespace Engine.ClassViewer
 
 
         //this must be activated each time you need to change something in the UI otherwise it wont update
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //this is later removed as this method is now inherited
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //protected virtual void OnPropertyChanged(string propertyName)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 }
