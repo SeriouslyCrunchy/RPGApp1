@@ -42,7 +42,7 @@ namespace Engine.ClassCreator
 
             //we can add quests here too...
             //this line first finds the location requested, then adds the quest found by ID to the list of quests that are available here. Got it? Good.
-            gameWorld.FindLocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
+            gameWorld.FindLocationAt(0, 0).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
 
 
             return gameWorld;

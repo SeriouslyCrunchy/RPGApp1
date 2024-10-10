@@ -101,8 +101,8 @@ namespace Engine.ClassViewer
             CurrentLocation = CurrentWorld.FindLocationAt(0, 0);
 
             //We can add items directly into the player's inventory here using the function in the item factory and they will show up on game start
-            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(1003));
-            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(1003));
+            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(101));
+            CurrentPlayer.Inventory.Add(GameItemFactory.CreateGameItem(101));
 
         }
 
