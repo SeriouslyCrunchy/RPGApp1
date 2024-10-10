@@ -18,6 +18,8 @@ namespace Engine.ClassCreator
             World gameWorld = new World();
 
             //add location list here
+            //in game locations...
+            //also add any quests that are in each location...
             gameWorld.AddLocation(0, 0, "Abandoned Hut",
             "The hut where you awoke, enough to provide some, albeit poor, shelter from the elements",
             "pack://application:,,,/Engine;component/Images/Locations/DSC_1065.JPG");
@@ -37,6 +39,10 @@ namespace Engine.ClassCreator
             gameWorld.AddLocation(-1, 0, "West Path",
             "A path to the West",
             "pack://application:,,,/Engine;component/Images/Locations/DSC_1002.JPG");
+
+            //we can add quests here too...
+            //this line first finds the location requested, then adds the quest found by ID to the list of quests that are available here. Got it? Good.
+            gameWorld.FindLocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
 
 
             return gameWorld;

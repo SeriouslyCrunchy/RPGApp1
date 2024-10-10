@@ -116,6 +116,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Quests">
+
                 </TabItem>
             </TabControl>
         </Grid>

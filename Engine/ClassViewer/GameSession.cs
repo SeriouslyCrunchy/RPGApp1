@@ -31,6 +31,9 @@ namespace Engine.ClassViewer
                 OnPropertyChanged(nameof(HasLocationToEast));
                 OnPropertyChanged(nameof(HasLocationToWest));
                 OnPropertyChanged(nameof(HasLocationToSouth));
+
+                //as part of the current location we need to sometimes give player quests from the location
+                GivePlayerQuestsAtLocation();
             }
         }
         public World CurrentWorld { get; set; }
@@ -122,6 +125,24 @@ namespace Engine.ClassViewer
             CurrentLocation = CurrentWorld.FindLocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
         }
 
+        //this method checks every quest of data type quest in the CurrentLocation.QuestsAvailableHere list.
+        //using LINQ (query language for lists)
+        //if NONE OF of the quest IDs (we are calling inverse any, so the result of the if is true if none of them match)
+        //in the player quest list (quests that the player currently has) 
+        //match the current Quest ID being searched
+        //add it to the players list
+       
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+            {
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.QuestID == quest.QuestID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
+            }
+        }
+       
 
 
         //this must be activated each time you need to change something in the UI otherwise it wont update

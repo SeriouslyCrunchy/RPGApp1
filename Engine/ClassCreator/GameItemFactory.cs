@@ -18,13 +18,19 @@ namespace Engine.ClassCreator
 
         //this static constructor simply creates a new list and then adds all the items below into it.
         //the items are effectively 'created' here with the right parameters required as part of the gameitem class, and, if applicable, the weapon class 
+        //at this point it's usually helpful to remember to create things like item IDs with some sort of system. 
+        //for instance, starting items could be 1XX, weapons could be 2XX, armour 3XX, usable items 4XX, and so on
         static GameItemFactory()
         {
             _standardGameItems = new List<GameItem>();
-            _standardGameItems.Add(new GameItem(1001, "Potion", 3));
-            _standardGameItems.Add(new GameItem(1002, "Fire Bomb", 5));
-            _standardGameItems.Add(new Weapon(1003, "Pointy Stick", 1, 1, 2));
-            _standardGameItems.Add(new Weapon(1004, "Rusty Sword", 5, 1, 3));
+            _standardGameItems.Add(new GameItem(401, "Potion", 3));
+            _standardGameItems.Add(new GameItem(402, "Fire Bomb", 5));
+            _standardGameItems.Add(new Weapon(101, "Pointy Stick", 1, 1, 2));
+            _standardGameItems.Add(new Weapon(204, "Rusty Sword", 5, 1, 3));
+            _standardGameItems.Add(new GameItem(901, "Makeshift Hammer", 3));
+            _standardGameItems.Add(new GameItem(801, "Sturdy Branch", 2));
+            _standardGameItems.Add(new GameItem(802, "Robust Rock", 2));
+            _standardGameItems.Add(new GameItem(803, "Fibrous Stalk", 2));
         }
 
         //this function is how we create a specific instatiated item of a standard item type. it also allows us to modify that item later if we wish
