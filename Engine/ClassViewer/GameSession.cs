@@ -31,6 +31,8 @@ namespace Engine.ClassViewer
                 OnPropertyChanged(nameof(HasLocationToEast));
                 OnPropertyChanged(nameof(HasLocationToWest));
                 OnPropertyChanged(nameof(HasLocationToSouth));
+
+                GivePlayerQuestsAtLocation();
             }
         }
         public World CurrentWorld { get; set; }
@@ -120,6 +122,17 @@ namespace Engine.ClassViewer
         public void MoveWest()
         {
             CurrentLocation = CurrentWorld.FindLocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+        }
+
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+            {
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
+            }
         }
 
 

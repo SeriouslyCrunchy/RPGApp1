@@ -38,6 +38,7 @@ namespace Engine.ClassCreator
             "A path to the West",
             "pack://application:,,,/Engine;component/Images/Locations/DSC_1002.JPG");
 
+            gameWorld.FindLocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
 
             return gameWorld;
         }

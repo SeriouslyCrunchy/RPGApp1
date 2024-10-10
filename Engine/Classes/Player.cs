@@ -14,7 +14,7 @@ namespace Engine.Classes
     {
         //private values are required here as we cannot use auto-properties to pass values to the viewer
         private string? _name;
-        private CharacterClasses _characterClass;
+        //private CharacterClasses _characterClass;
         private int _hitPoints;
         private int _experiencePoints;
         private int _level;
@@ -75,10 +75,14 @@ namespace Engine.Classes
         //and so does not require an OnPropertyChanged statement
         public ObservableCollection<GameItem> Inventory { get; set; }
 
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+
         ////this must be initialised and is best done in a constructor
         public Player()
         {
             Inventory = new ObservableCollection<GameItem>();
+
+            Quests = new ObservableCollection<QuestStatus>();
         }
 
         //this must be activated each time you need to change something in the UI otherwise it wont update

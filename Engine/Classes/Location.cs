@@ -14,5 +14,7 @@ namespace Engine.Classes
         public string LocationName { get; set; }
         public string LocationDescription { get; set; }
         public string LocationImageFile { get; set; }
+
+        public List<Quest> QuestsAvailableHere { get; set; } = new List<Quest>();
     }
 }

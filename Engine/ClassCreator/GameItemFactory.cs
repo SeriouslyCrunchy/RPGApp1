@@ -25,6 +25,8 @@ namespace Engine.ClassCreator
             _standardGameItems.Add(new GameItem(1002, "Fire Bomb", 5));
             _standardGameItems.Add(new Weapon(1003, "Pointy Stick", 1, 1, 2));
             _standardGameItems.Add(new Weapon(1004, "Rusty Sword", 5, 1, 3));
+            _standardGameItems.Add(new GameItem(9001, "Snake fang", 1));
+            _standardGameItems.Add(new GameItem(9002, "Snakeskin", 2));
         }
 
         //this function is how we create a specific instatiated item of a standard item type. it also allows us to modify that item later if we wish
